@@ -8,12 +8,12 @@ namespace Calculator.Utils
 	public static class Utils
 	{
 		// executed Expression
-		private static int executeExpression(string text)
+		private static double executeExpression(string text) // modified to double
 		{
 			string number = new DataTable().Compute(text, "").ToString();
 			double numberDouble = Convert.ToDouble(number);
 
-			return Convert.ToInt16(numberDouble);
+			return numberDouble; // modified to return number double
 		}
 
 		// validdate if is numeric
@@ -92,7 +92,7 @@ namespace Calculator.Utils
 
 			try
 			{
-				primaryDisplay.Text = executeExpression(primaryDisplay.Text + secondaryDisplay.Text).ToString();  //
+				primaryDisplay.Text = executeExpression(secondaryDisplay.Text + primaryDisplay.Text).ToString();  // modified the display value additional.
 
 				if (primaryDisplay.Text.Length > 6)
 					primaryDisplay.FontSize = 48;
